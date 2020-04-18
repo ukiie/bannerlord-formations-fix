@@ -12,11 +12,10 @@ namespace FormationsFix
 #if DEBUG
             Harmony.DEBUG = true;
 #endif
-            Harmony harmony = new Harmony("com.ukie.formationsfix");
+            Harmony harmony = new Harmony("com.ukie.formations-fix");
 
             harmony.PatchAll(typeof(SubModule).Assembly);
             var originalMethods = harmony.GetPatchedMethods();
-
         }
 
         public override void OnMissionBehaviourInitialize(Mission mission)

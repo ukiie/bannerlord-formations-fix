@@ -12,9 +12,11 @@ using TaleWorlds.MountAndBlade;
 
 namespace FormationsFix.Patches
 {
-    [HarmonyPatch(typeof(ArrangementOrder), "OnApply")]
+    [HarmonyPatch(typeof(ArrangementOrder))]
     internal static class ArrangementOrderOnApplyPatch
     {
+        [HarmonyPostfix]
+        [HarmonyPatch("OnApply")]
         private static void OnApply(ref ArrangementOrder __instance, Formation formation)
         {
             var instanceOrderEnum = __instance.GetOrderEnumField();
